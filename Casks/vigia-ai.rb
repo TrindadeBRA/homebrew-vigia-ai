@@ -22,10 +22,10 @@ cask "vigia-ai" do
 
   # Sem certificado pago da Apple Developer ID, o build sai só ad-hoc
   # assinado — a Apple marca todo download direto do navegador como
-  # "danificado" mesmo íntegro. O `brew install --cask` não passa pelo
-  # Finder/LaunchServices pra copiar o app, então a flag de quarentena
-  # nunca chega a ser um bloqueio: este postflight só garante que ela não
-  # fique presa em nenhum caso. Ver .agents/RELEASE.md no repo principal.
+  # "danificado" mesmo íntegro. O download do `brew` TAMBÉM grava
+  # com.apple.quarantine (confirmado com xattr no .dmg em cache) — sem
+  # este passo o app instalado herdaria a mesma flag e cairia no mesmo
+  # aviso. Ver .agents/RELEASE.md no repo principal.
   postflight_steps do
     run "/usr/bin/xattr", args: ["-cr", "{{appdir}}/Vigia AI.app"]
   end
