@@ -26,10 +26,8 @@ cask "vigia-ai" do
   # Finder/LaunchServices pra copiar o app, então a flag de quarentena
   # nunca chega a ser um bloqueio: este postflight só garante que ela não
   # fique presa em nenhum caso. Ver .agents/RELEASE.md no repo principal.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/Vigia AI.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-cr", "{{appdir}}/Vigia AI.app"]
   end
 
   zap trash: [
