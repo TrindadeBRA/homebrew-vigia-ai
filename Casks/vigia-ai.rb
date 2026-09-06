@@ -1,9 +1,9 @@
 cask "vigia-ai" do
   arch arm: "-arm64"
 
-  version "2.4.3"
-  sha256 arm:   "2acb0b0ccf0a8fceb2775f8502a7da3aa93e1f206e3a4bf04b5c5873eaa93b4b",
-         intel: "53364243af515866790c3959b9b8ecd8f5597fbacecb6116656c92df97ee1410"
+  version "2.6.0"
+  sha256 arm:   "448996d6120993c56247223e60c3a07f4dac17d174c3b1b481d4485f0df75840",
+         intel: "2549f0bb7f47882ea624fb6f18fe2d7d49a6cc3f1f8898e7c8e0cd12c7d7db7b"
 
   url "https://github.com/TrindadeBRA/vigia-ai/releases/download/v#{version}/Vigia-AI-#{version}#{arch}.dmg"
   name "Vigia AI"
